@@ -182,14 +182,21 @@
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
                 <h2 class="section-title">Contact Us</h2>
-
+                <form action="https://formsubmit.co/aayushfreelancingservice@gmail.com" method= "POST" >
+                <!-- <form action="https://formsubmit.co/hemantsuteri@gmail.com" method= "POST" > -->
                 <div class="contact__container bd-grid">
-                        <input type="text" placeholder="Name" class="contact__input" required>
-                        <textarea name="" placeholder="Subject" name="body" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <label for="upload" class="contact__input_text"> Raw Clip</label>
-                        <input type="file" name="upload" id="upload" class="contact__input">
-                        <label for="upload" class="contact__input_text"> Demo Clip</label>
-                        <input type="file" name="upload" id="upload" class="contact__input">
+                        <!-- <input type = "text" name="name" required> -->
+                        <!-- <input  type = "email"names" email" required> -->
+                        <!-- <button >Send</button> -->
+                    <!-- </form> -->
+                        
+                    <!-- <form action=""> -->
+                        <input type="text" name="Name" placeholder="Name" class="contact__input" required>
+                        <textarea name="Description" placeholder="Subject" name="body" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <!-- <label for="upload" class="contact__input_text"> Raw Clip Link</label> -->
+                        <input type="text" name="raw_video_link" placeholder="Raw video link" id="raw" class="contact__input">
+                        <!-- <label for="upload" class="contact__input_text"> Demo Clip Link</label> -->
+                        <input type="text" name="demo_video_link" placeholder="Demo video link" id="demo" class="contact__input">
                         <input type="submit" value="Send" class="contact__button button">
                     </form>
                 </div>
