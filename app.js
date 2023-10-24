@@ -6,7 +6,9 @@ const mongoose = require('mongoose'); // Import Mongoose
 const User = require('./models/User')
 // Serve static files (e.g., CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // Connect to MongoDB Atlas
 mongoose.connect('mongodb+srv://hemantsuteri:hemant1@cluster0.gfanihd.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -19,11 +21,12 @@ db.once('open', () => {
   console.log('Connected to MongoDB Atlas');
 });
 
+app.get('/status', (req, res) => {
+  res.status(200).json({message:"the server is up and running"});
+});
+
 // Serve the index.html file
 app.get('/', (req, res) => {
-  // res.status(200).json({message:"the server is up and running"});
-  // User.createOne({name:"abc"....}).then(()=>{}).catch(()=>{})
-
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
@@ -31,46 +34,36 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-
-app.post('/login', (req, res) => {
-  const { email, pwd } = req.body;
-  if (!email || !pwd) return res.sendStatus(401);
-  User.findOne({email: email, password : pwd}).then(()=>{
-    console.log(email, pwd);
-    res.status(200).json({message:"Logged in successfully"});
-  }).catch(()=>{
-    res.status(400).json({message:"Invalid credentials"});
-  })
-
+app.post('/login', async  (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) return res.sendStatus(401);
+  console.log(email, password);
+  try{
+  let user = await User.findOne({email: email, password: password})
+  if(user){
+    res.sendFile(path.join(__dirname, 'public', 'succesful.html'));
+  }
+  else 
+   res.sendFile(path.join(__dirname, 'public', 'unsuccesful.html'));
+  }
+  catch(e){
+    res.sendFile(path.join(__dirname, 'public', 'unsuccesful.html'));
+  }
 });
-// Simulated local database (in-memory array)
-const users = [];
-
-// Parse JSON in request body
-app.use(bodyParser.json());
 
 // Route to handle user registration
 app.post('/register', (req, res) => {
-  
-  const { email, pwd } = req.body;
-  users.push({ email, password:pwd });
-  User.create({email: req.body.email, password: req.body.pwd}).then(()=>{
-    res.status(201).json({ message: 'User registered successfully' });
+  const { email, password } = req.body;
+  console.log(email, password, req.body);
+  User.create({email, password}).then(()=>{
+    // res.status(201).json({ message: 'User registered successfully' });
+    res.sendFile(path.join(__dirname, 'public', 'succesful.html'));
   }).catch((e)=>{
-    res.status(500).json({ message: `Error registering new user, error:  ${e}` })
+    // res.status(500).json({ message: `Error registering new user, error:  ${e}` })
+    console.log(e);
+    res.sendFile(path.join(__dirname, 'public', 'unsuccesful.html'));
   })
   
-});
-
-// Route to handle user login
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  const user = users.find((u) => u.email === email && u.password === password);
-  if (user) {
-    res.json({ message: 'Login successful' });
-  } else {
-    res.status(401).json({ message: 'Authentication failed' });
-  }
 });
 
 const PORT = process.env.PORT || 3000;
