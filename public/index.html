@@ -43,7 +43,7 @@
                         <br>
                         ATV Productions </span><br> your video buddy </h1>
 
-                    <a href="mailto:aayushfreelancingservice@gmail.com" class="button">Contact</a>
+                    <a href="#contact" class="button">Contact</a>
                 </div>
 
                 <div class="home__social">
@@ -182,8 +182,8 @@
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
                 <h2 class="section-title">Contact Us</h2>
-                <form action="https://formsubmit.co/aayushfreelancingservice@gmail.com" method= "POST" >
-                <!-- <form action="https://formsubmit.co/hemantsuteri@gmail.com" method= "POST" > -->
+                <!-- <form action="https://formsubmit.co/aayushfreelancingservice@gmail.com" method= "POST" > -->
+                <form action="https://formsubmit.co/hemantsuteri@gmail.com" method= "POST" >
                 <div class="contact__container bd-grid">
                         <!-- <input type = "text" name="name" required> -->
                         <!-- <input  type = "email"names" email" required> -->
@@ -197,8 +197,10 @@
                         <input type="text" name="raw_video_link" placeholder="Raw video link" id="raw" class="contact__input">
                         <!-- <label for="upload" class="contact__input_text"> Demo Clip Link</label> -->
                         <input type="text" name="demo_video_link" placeholder="Demo video link" id="demo" class="contact__input">
-                        <input type="submit" value="Send" class="contact__button button">
+                        <!-- <input type="submit" value="Send" class="contact__button button"> -->
+                        <button type="button" onclick="sendEmail()">Send Email</button>
                     </form>
+
                 </div>
             </section>
         </main>
@@ -218,5 +220,32 @@
 
         <!--===== MAIN JS =====-->
         <script src="asset/js/main.js"></script>
+        <script>
+            async function sendEmail() {
+              const email = document.getElementById('email').value;
+              const message = document.getElementById('message').value;
+        
+              try {
+                const response = await fetch('/login', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ email, password: 'user_password' }), // Set the actual user password
+                });
+        
+                const data = await response.json();
+        
+                if (response.status === 200) {
+                  // User is authenticated, proceed with sending email logic
+                  console.log('Email sent successfully');
+                } else {
+                  console.error('Authentication failed:', data.error);
+                }
+              } catch (error) {
+                console.error('Error sending email:', error);
+              }
+            }    
+        </script>
     </body>
 </html>

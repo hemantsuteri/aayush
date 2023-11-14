@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const {sendMail} = require('./sendMail');
 
 router.post('/signup', async (req, res) => {
   try {
@@ -42,5 +43,7 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+router.post("/sendMail", sendMail);
 
 module.exports = router;
