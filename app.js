@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose'); // Import Mongoose
 const User = require('./models/User')
-// Serve static files (e.g., CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,7 +24,6 @@ app.get('/status', (req, res) => {
   res.status(200).json({message:"the server is up and running"});
 });
 
-// Serve the index.html file
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -56,10 +54,8 @@ app.post('/register', (req, res) => {
   const { email, password } = req.body;
   console.log(email, password, req.body);
   User.create({email, password}).then(()=>{
-    // res.status(201).json({ message: 'User registered successfully' });
     res.sendFile(path.join(__dirname, 'public', 'succesful.html'));
   }).catch((e)=>{
-    // res.status(500).json({ message: `Error registering new user, error:  ${e}` })
     console.log(e);
     res.sendFile(path.join(__dirname, 'public', 'unsuccesful.html'));
   })

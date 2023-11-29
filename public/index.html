@@ -49,12 +49,12 @@
                 <div class="home__social">
                     <a href="https://www.linkedin.com/in/aayush-tiwari-204774213" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
                     <a href="https://instagram.com/atv_productionstudio?igshid=NTc4MTIwNjQ2YQ==" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
-                    <a href="https://www.youtube.com/@aayushtiwarivines609" class="home__social-icon"><i class='bx bxl-youtube' ></i></a>
+                    <a href="https://www.youtube.com/@AayushTiwariVines" class="home__social-icon"><i class='bx bxl-youtube' ></i></a>
                 </div>
 
                 <div class="home__img">
                     <svg viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <image class="home__blob-img" x="50" y="60" href="asset/img/logo new.png"/>
+                            <image class="home__blob-img" x="50" y="60" href="https://res.cloudinary.com/duivrjbfz/image/upload/v1701283459/about_ozsbf7.jpg"/>
                     </svg>
                 </div>
             </section>
@@ -121,8 +121,6 @@
                         </div>
                         <div class="skills__data">
                             <div class="skills__names">
-                                <!-- <i class='bx bxs-paint skills__icon'></i> -->
-                                <!-- <span>&nbsp; </span> -->
                                 <img src="./asset/img/icon3.png" height="25" width="25">
                                 <span class="skills__name">&nbsp; &nbsp; &nbsp;Adobe Illustrator</span>
                             </div>
@@ -182,22 +180,10 @@
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
                 <h2 class="section-title">Feedback</h2>
-                <!-- <form action="https://formsubmit.co/aayushfreelancingservice@gmail.com" method= "POST" > -->
                 <form action="https://formsubmit.co/hemantsuteri@gmail.com" method= "POST" >
                 <div class="contact__container bd-grid">
-                        <!-- <input type = "text" name="name" required> -->
-                        <!-- <input  type = "email"names" email" required> -->
-                        <!-- <button >Send</button> -->
-                    <!-- </form> -->
-                        
-                    <!-- <form action=""> -->
                         <input type="text" name="Name" placeholder="Your good Name" class="contact__input" required>
                         <textarea name="Description" placeholder="Write your Feedback here.." name="body" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <!-- <label for="upload" class="contact__input_text"> Raw Clip Link</label> -->
-                        <!-- <input type="text" name="raw_video_link" placeholder="Raw video link" id="raw" class="contact__input"> -->
-                        <!-- <label for="upload" class="contact__input_text"> Demo Clip Link</label> -->
-                        <!-- <input type="text" name="demo_video_link" placeholder="Demo video link" id="demo" class="contact__input"> -->
-                        <!-- <input type="submit" value="Send" class="contact__button button"> -->
                         <button type="button" onclick="sendEmail()">Send!!</button>
                     </form>
 
@@ -208,9 +194,9 @@
         <footer class="footer">
             <p class="footer__title">Aayush Tiwari</p>
             <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+                <a href="https://www.youtube.com/@AayushTiwariVines" class="footer__icon"><i class='bx bxl-youtube' ></i></a>
+                <a href="https://instagram.com/atv_productionstudio?igshid=NTc4MTIwNjQ2YQ==" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://www.linkedin.com/in/aayush-tiwari-204774213" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
             </div>
             <p class="footer__copy"> Made with &#10084; by Aayush Tiwari</p>
         </footer>
@@ -231,7 +217,7 @@
                   headers: {
                     'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify({ email, password: 'user_password' }), // Set the actual user password
+                  body: JSON.stringify({ email, password: 'user_password' }), 
                 });
         
                 const data = await response.json();

@@ -363,7 +363,6 @@ img {
   font-weight: var(--font-semi);
   padding: 1rem;
   border-radius: .5rem;
-  /* border: 1px solid var(--second-color); */
   outline: none;
   margin-bottom: var(--mb-4);
 }
