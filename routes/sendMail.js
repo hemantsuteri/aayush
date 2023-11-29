@@ -11,14 +11,14 @@ export const sendMail = async(req, res) => {
         }
     });
 
-    const info = await transporter.sendMail({
-        from: '"user" <sharma2000subodh@gmail.com>', // sender address
-        to: "hemantsuteri@gmail.com", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
-      });
-      res.send(info);
+    // const info = await transporter.sendMail({
+    //     from: '"user" <sharma2000subodh@gmail.com>', // sender address
+    //     to: "hemantsuteri@gmail.com", // list of receivers
+    //     subject: "Hello ✔", // Subject line
+    //     text: "Hello world?", // plain text body
+    //     html: "<b>Hello world?</b>", // html body
+    //   });
+    //   res.send(info);
     }
 
 

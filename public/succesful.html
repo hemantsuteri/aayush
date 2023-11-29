@@ -1,123 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Success Page</title>
-    <link rel="icon" href="./assets/img/logo new.png" type="image/icon">
+    <title>Payment Page</title>
+    <link rel="icon" href="https://res.cloudinary.com/duivrjbfz/image/upload/v1701283459/about_ozsbf7.jpg" type="image/icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
 <style>
-    .box{
-    margin-top:10%;
-    display:flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
-  }
-  
-  .alert{
-    margin-top:25px;
-    background-color:#fff;
-    font-size:35px;
-    font-family:sans-serif;
-    text-align:center;
-    width:300px;
-    height:100px;
-    padding-top: 150px;
-    position:relative;
-    /* border: 1px solid #efefda; */
-    /* border-radius: 2%; */
-    /* box-shadow:0px 0px 3px 1px #ccc; */
-  }
-  
-  .alert::before{
-    width:100px;
-    height:100px;
-    position:absolute;
-    border-radius: 100%;
-    inset: 20px 0px 0px 100px;
-    font-size: 60px;
-    line-height: 100px;
-    /* border : 5px solid gray; */
-    animation-name: reveal;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-in-out;
-  }
-  
-  .alert>.alert-body{
-    opacity:0;
-    animation-name: reveal-message;
-    animation-duration:1s;
-    animation-timing-function: ease-out;
-    animation-delay:1.5s;
-    animation-fill-mode:forwards;
-  }
-  
-  @keyframes reveal-message{
-    from{
-      opacity:0;
+    .box {
+        margin-top: 10%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
-    to{
-      opacity:1;
-    }
-  }
-  
-  .success{
-    color:green;
-  }
-  
-  .success::before{
-    content: '✓';
-    background-color: #eff;
-    box-shadow: 0px 0px 12px 7px rgba(200,255,150,0.8) inset;
-    border : 5px solid green;
-  }
-  
-  @keyframes reveal {
-    0%{
-      border: 5px solid transparent;
-      color: transparent;
-      box-shadow: 0px 0px 12px 7px rgba(255,250,250,0.8) inset;
-      transform: rotate(1000deg);
-    }
-    25% {
-      /* border-top:5px solid gray; */
-      color: transparent;
-      box-shadow: 0px 0px 17px 10px rgba(255,250,250,0.8) inset;
-      }
-    50%{
-      /* border-right: 5px solid gray; */
-      /* border-left : 5px solid gray; */
-      color:transparent;
-      box-shadow: 0px 0px 17px 10px rgba(200,200,200,0.8) inset;
-    }
-    75% {
-      border-bottom: 5px solid gray;
-      color:gray;
-      box-shadow: 0px 0px 12px 7px rgba(200,200,200,0.8) inset;
-      }
-    100%{
-      border: 5px solid gray;
-      box-shadow: 0px 0px 12px 7px rgba(200,200,200,0.8) inset;
-    }
-  }
 
-  .anchor{
-    text-align:center;
-    font-size: 30px;
-  }
+    .alert {
+        margin-top: 25px;
+        /* background-color: #fff; */
+        font-size: 35px;
+        font-family: sans-serif;
+        text-align: center;
+        width: 400px;
+        height: 300px;
+        padding-top: 80px;
+        position: relative;
+        /* border-radius: 8px; */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .alert img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+    }
+
+    .alert>.alert-body {
+        opacity: 0;
+        animation-name: reveal-message;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes reveal-message {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .success {
+        color: green;
+    }
+
+    .success::before {
+        content: '';
+        background: url('https://res.cloudinary.com/duivrjbfz/image/upload/v1701283272/qrcode_h2bkdd.jpg') center/cover no-repeat;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+
 </style>
-<!-- </style> -->
 </head>
 <body>
-<div class="box"> 
-    <div class="success alert">
-      <div class="alert-body">
-        Success !
-      </div>
+    <div class="box">
+        <div class="success alert">
+            <div class="alert-body">
+                Pay ₹5000 on this QR Code
+            </div>
+        </div>
     </div>
-    </div>
-    <div class="anchor"><a href="index.html">Go back to Home page</a></div>
-  </div>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Images</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .course-card {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-image {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .course-description {
+      margin-top: 10px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 8px;
+      margin-left: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Courses Available</h1>
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search Courses...">
+    </div>
+  </div>
+
+  <a href="/login">
+    <div class="image-container">
+      <div class="course-card">
+        <img class="course-image" src="https://res.cloudinary.com/duivrjbfz/image/upload/v1701195236/myimages/course2_s8obto.png" alt="Basic Course">
+        <div class="course-description">Basic Course</div>
+      </div>
+
+      <div class="course-card">
+        <img class="course-image" src="https://res.cloudinary.com/duivrjbfz/image/upload/v1701195236/myimages/course1_mkjkvt.png" alt="Advanced Course">
+        <div class="course-description">Advanced Course</div>
+      </div>
+    </div>
+  </a>
+
+</body>
+</html>
