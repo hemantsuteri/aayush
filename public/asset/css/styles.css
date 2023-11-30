@@ -253,8 +253,10 @@ img {
 
 /* ===== ABOUT =====*/
 .about__container {
-  row-gap: 2rem;
-  text-align: center;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about__subtitle {
@@ -443,11 +445,6 @@ img {
     width: 300px;
     bottom: 25%;
   }
-  .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    text-align: initial;
-  }
   .skills__container {
     grid-template-columns: .7fr;
     justify-content: center;
@@ -505,9 +502,6 @@ img {
   .home__img {
     width: 400px;
     bottom: 10%;
-  }
-  .about__container {
-    padding-top: 2rem;
   }
   .about__img img {
     width: 300px;
